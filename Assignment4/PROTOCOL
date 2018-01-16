@@ -1,0 +1,26 @@
+When the client connects to the server, the server sends a greeting:
+"dancecard", space, protocol version number (currently 1), CRLF.
+
+Then the client must send the user's "handle", followed by CRLF.  The handle
+must be 50 characters or fewer, and must not contain control characters.
+It may not be "who", "begin", or "debug".
+
+The server responds to the handle with a blank line (just CRLF) if the handle
+is acceptable, or an error message if it is not (the error message will
+usually be that another user already has this handle).  The error message is
+suitable for display to the user.  If there is an error message, the server is
+still expecting a handle.
+
+Once the server responds with a blank line, the client says either 'l', 'f',
+or 'b', and a CRLF.  This indicates whether the user dances lead, or follow,
+or can dance both roles, respectively.  Again the server responds with either
+a blank line or an error message, and loops in the latter case.
+
+After this, all messages which the server sends are suitable for display to
+the client.  The server begins each round by telling the users who is
+available to dance.  At any time the client can send one of three possible
+commands:
+    * to ask someone to dance, send their handle.
+    * to list those still available to dance, send "who"
+    * to start this dance, send "begin"
+Each of these commands is followed by a CRLF.
