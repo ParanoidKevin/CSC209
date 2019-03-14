@@ -5,7 +5,7 @@
 
 ### Assignment 2
 - box files' content using charater '*'
-- recursive search file/directories in file unix like system
+- recursive search file/directories in unix like system
 
 ### Assignment 3
 - build a terminal using C (supports multiple arguments)
