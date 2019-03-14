@@ -1,2 +1,2 @@
 # CSC209
-<font size=72>123</font>
+<font size=20>123</font>
